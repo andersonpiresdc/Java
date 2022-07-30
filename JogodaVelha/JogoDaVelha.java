@@ -6,8 +6,8 @@ public class JogoDaVelha {
 
       Campo[][] velha = new Campo[3][3];
       char simboloAtual = 'X';
-      Boolean game = true;
-      String vitoria = "";
+      boolean game = true;
+      String vitoria;
       Scanner scan = new Scanner(System.in);
 
       iniciarJogo(velha);
@@ -28,8 +28,8 @@ public class JogoDaVelha {
                }
             }
          }catch(Exception e){
-            System.out.printf("Erro");
-
+            System.out.println("Erro: " + e.getCause());
+            break;
          }
       }
       System.out.printf("Fim de jogo");
@@ -55,11 +55,15 @@ public class JogoDaVelha {
 
    public static int[] jogar(Scanner scan, char sa){
       int p[] = new int[2];
-      System.out.printf("%s %c%n", "Quem joga? ", sa);
-      System.out.print("Informar a linha: ");
-      p[0]=scan.nextInt();
-      System.out.print("Informar a coluna: ");
-      p[1]=scan.nextInt();
+      try{
+         System.out.printf("%s %c%n", "Quem joga? ", sa);
+         System.out.print("Informar a linha: ");
+         p[0]=scan.nextInt();
+         System.out.print("Informar a coluna: ");
+         p[1]=scan.nextInt();
+      }catch(Exception e){
+         System.out.println("Error: ");
+      }
       return p;
    }
 
