@@ -28,8 +28,13 @@ public class JogoDaVelha {
                }
             }
          }catch(Exception e){
+<<<<<<< HEAD
             System.out.print("Erro");
 
+=======
+            System.out.println("Erro: " + e.getCause());
+            break;
+>>>>>>> 667cc2e4f79025189736ef5752c9ee1411ef52f2
          }
       }
       System.out.print("Fim de jogo");
@@ -54,12 +59,25 @@ public class JogoDaVelha {
    }
 
    public static int[] jogar(Scanner scan, char sa){
+<<<<<<< HEAD
       int[] p = new int[2];
       System.out.printf("%s %c%n", "Quem joga? ", sa);
       System.out.print("Informar a linha: ");
       p[0]=scan.nextInt();
       System.out.print("Informar a coluna: ");
       p[1]=scan.nextInt();
+=======
+      int p[] = new int[2];
+      try{
+         System.out.printf("%s %c%n", "Quem joga? ", sa);
+         System.out.print("Informar a linha: ");
+         p[0]=scan.nextInt();
+         System.out.print("Informar a coluna: ");
+         p[1]=scan.nextInt();
+      }catch(Exception e){
+         System.out.println("Error: ");
+      }
+>>>>>>> 667cc2e4f79025189736ef5752c9ee1411ef52f2
       return p;
    }
 
