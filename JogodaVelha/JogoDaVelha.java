@@ -6,8 +6,8 @@ public class JogoDaVelha {
 
       Campo[][] velha = new Campo[3][3];
       char simboloAtual = 'X';
-      Boolean game = true;
-      String vitoria = "";
+      boolean game = true;
+      String vitoria;
       Scanner scan = new Scanner(System.in);
 
       iniciarJogo(velha);
@@ -28,11 +28,11 @@ public class JogoDaVelha {
                }
             }
          }catch(Exception e){
-            System.out.printf("Erro");
+            System.out.print("Erro");
 
          }
       }
-      System.out.printf("Fim de jogo");
+      System.out.print("Fim de jogo");
    }
 
    public static void desenhaJogo(Campo[][] velha){
@@ -43,18 +43,18 @@ public class JogoDaVelha {
       System.out.printf ("1   %c | %c | %c %n", velha[1][0].getSimbolo(), velha[1][1].getSimbolo(), velha[1][2].getSimbolo());
       System.out.println("   -------------");
       System.out.printf ("2   %c | %c | %c %n", velha[2][0].getSimbolo(), velha[2][1].getSimbolo(), velha[2][2].getSimbolo());
-      System.out.println("");
-      System.out.println("");
+      System.out.println();
+      System.out.println();
    }
 
    public static void limparTela(){
       for(int cont=0;cont<200;cont++){
-         System.out.println("");
+         System.out.println();
       }
    }
 
    public static int[] jogar(Scanner scan, char sa){
-      int p[] = new int[2];
+      int[] p = new int[2];
       System.out.printf("%s %c%n", "Quem joga? ", sa);
       System.out.print("Informar a linha: ");
       p[0]=scan.nextInt();
@@ -63,7 +63,7 @@ public class JogoDaVelha {
       return p;
    }
 
-   public static Boolean verificaJogada(Campo[][] velha, int p[], char simboloAtual){
+   public static Boolean verificaJogada(Campo[][] velha, int[] p, char simboloAtual){
       if (velha[p[0]][p[1]].getSimbolo() == ' '){
          velha[p[0]][p[1]].setSimbolo(simboloAtual);
          return true;
